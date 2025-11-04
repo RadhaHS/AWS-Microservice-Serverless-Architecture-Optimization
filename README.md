@@ -6,23 +6,9 @@ This project sets up a serverless RESTful API through Amazon API Gateway, which 
 <img width="1135" height="512" alt="Picture1" src="https://github.com/user-attachments/assets/52d4871c-05f5-47e1-935e-f50f427188dc" />
 
 
-<h2>AWS Well-Architected Framework & Power Tuning Impact</h2>h2>
+<h2>AWS Well-Architected Framework & Power Tuning Impact</h2>
 The 2 pillars of AWS Well Architected Framework - Cost Optimization and Performance Efficiency are directly impacted by Lambda Power Tuning Tool.
-
-Pillar	How Lambda Power Tuning Contributes
-Cost Optimization	Identifies the most cost-effective memory configuration, reducing overprovisioning and execution time costs.
-Performance Efficiency	Balances CPU/memory to minimize latency and maximize throughput. Empirical testing replaces guesswork.
-
-<h2>Steps followed for this project</h2>
-1.	Created a custom policy for least privilege – to grant Dynamo DB Allow permissions and the logs
-2.	Created Lambda IAM Role  - For performing operations for Lambda 
-3.	Created Lambda function  - To perform CRUD operations logic with Python 3.13 runtime engine.
-4.	Created Dynamo DB Table – With Table name and Partition Key -id (String)
-5.	Created REST API on API Gateway – Created POST Method for the API with DynamoDB Resource
-6.	Integrated the API with Lambda function.
-7.	Deployed the API to prod environment
-8.	Executed the solution with AWS Lambda Power Tune with Step functions.
-
+<img width="1714" height="318" alt="tablepicture" src="https://github.com/user-attachments/assets/b7ec28cb-d7e7-477a-857d-503c6d549e66" />
 
 <h2>Lambda Function </h2> 
 The function serves as a dispatcher, directing incoming operations from the API Gateway payload to the corresponding DynamoDB action via boto3.
@@ -62,13 +48,14 @@ def lambda_handler(event, context):
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation)) </pre>
 
-<h2>Here is AWS Lambda Power Tuning Results chart and Analysis</h2> https://github.com/RadhaHS/Microservice-Serverless-Architecture-Optimization/blob/main/Powertunetool.png
+<h2>Here is AWS Lambda Power Tuning Results chart and Analysis</h2> 
+<img width="2506" height="1083" alt="Powertunetool" src="https://github.com/user-attachments/assets/6769e578-4d7d-455e-bb1e-61fe9f7e1088" />
 
-128 MB: $0.0000033 / execution — 1.5 s runtime
-512 MB: $0.00000069 / execution — 0.08 s runtime
+At 128 MB, the function costs approximately $0.0000033 per execution and takes about 1.5 seconds to complete.
+At 512 MB, the same function costs only $0.00000069 per execution and finishes in roughly 0.08 seconds.
 
+Conclusion: Increasing memory doesn’t always increase cost — in this case, more memory resulted in dramatically faster execution and a lower overall cost per invocation. Data-driven tuning helps identify the sweet spot where performance and cost are both optimized.
 
-If higher memory results in more throughput (fewer concurrent executions), the effective total cost to handle a workload can be lower — Lambda Power Tuning reveals this balance
 
 
 
