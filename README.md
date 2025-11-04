@@ -54,7 +54,8 @@ def lambda_handler(event, context):
 At 128 MB, the function costs approximately $0.0000033 per execution and takes about 1.5 seconds to complete.
 At 512 MB, the same function costs only $0.00000069 per execution and finishes in roughly 0.08 seconds.
 
-Conclusion: Increasing memory doesn’t always increase cost — in this case, more memory resulted in dramatically faster execution and a lower overall cost per invocation. Data-driven tuning helps identify the sweet spot where performance and cost are both optimized.
+<h2>Conclusion</h2> 
+Increasing memory doesn’t always increase cost — in this case, more memory resulted in dramatically faster execution and a lower overall cost per invocation. Data-driven tuning helps identify the sweet spot where performance and cost are both optimized.
 
 
 
