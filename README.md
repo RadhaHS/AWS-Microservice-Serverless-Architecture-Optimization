@@ -48,7 +48,7 @@ def lambda_handler(event, context):
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation)) </pre>
 
-<h2>Here is AWS Lambda Power Tuning Results chart and Analysis</h2> 
+<h2>AWS Lambda Power Tuning Results chart and Analysis</h2> 
 <img width="2506" height="1083" alt="Powertunetool" src="https://github.com/user-attachments/assets/6769e578-4d7d-455e-bb1e-61fe9f7e1088" />
 
 At 128 MB, the function costs approximately $0.0000033 per execution and takes about 1.5 seconds to complete.
