@@ -22,14 +22,14 @@ Performance Efficiency	Balances CPU/memory to minimize latency and maximize thro
 8.	Executed the solution with AWS Lambda Power Tune with Step functions.
 
 
-<h2>Lambda Function </h2> –
+<h2>Lambda Function </h2> 
+The function serves as a dispatcher, directing incoming operations from the API Gateway payload to the corresponding DynamoDB action via boto3.
 
 <pre> from __future__ import print_function
 import boto3
 import json
 
 print('Loading function')
-
 
 def lambda_handler(event, context):
     '''Provide an event that contains the following keys:
@@ -59,13 +59,12 @@ def lambda_handler(event, context):
         return operations[operation](event.get('payload'))
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation)) </pre>
-<img width="468" height="527" alt="image" src="https://github.com/user-attachments/assets/fddd4d43-4e51-4855-a633-4b5d8cbe9e72" />
 
-The function serves as a dispatcher, directing incoming operations from the API Gateway payload to the corresponding DynamoDB action via boto3.
-Lamda_function.py
 <h2>Here is AWS Lambda Power Tuning Results chart and Analysis</h2> 
+
 128 MB: $0.0000033 / execution — 1.5 s runtime
 512 MB: $0.00000069 / execution — 0.08 s runtime
+
 
 If higher memory results in more throughput (fewer concurrent executions), the effective total cost to handle a workload can be lower — Lambda Power Tuning reveals this balance
 
