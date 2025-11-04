@@ -1,5 +1,5 @@
 
- <h1>Microservice-Serverless-Architecture-Optimization</h1>
+ <h1>AWS Microservice-Serverless-Architecture-Optimization</h1>
 This project sets up a serverless RESTful API through Amazon API Gateway, which connects to an AWS Lambda function to execute CRUD (Create, Read, Update, Delete) operations on a DynamoDB table. The architecture demonstrates a Serverless Microservice design aimed at achieving high scalability, cost efficiency, high performance and minimal maintenance effort. Optimization has been done with Lambda Power Tuning Tool.
 
 <h2>Serverless Lab Design</h2>
