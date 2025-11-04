@@ -2,8 +2,8 @@
  <h1>Microservice-Serverless-Architecture-Optimization</h1>
 This project sets up a serverless RESTful API through Amazon API Gateway, which connects to an AWS Lambda function to execute CRUD (Create, Read, Update, Delete) operations on a DynamoDB table. The architecture demonstrates a Serverless Microservice design aimed at achieving high scalability, cost efficiency, high performance and minimal maintenance effort. Optimization has been done with Lambda Power Tuning Tool.
 
-<h2>Serverless Lab Design</h2>h2>
-
+<h2>Serverless Lab Design</h2>
+Serverlessimage.png
 <h2>AWS Well-Architected Framework & Power Tuning Impact</h2>h2>
 The 2 pillars of AWS Well Architected Framework - Cost Optimization and Performance Efficiency are directly impacted by Lambda Power Tuning Tool.
 
